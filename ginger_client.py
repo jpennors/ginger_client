@@ -51,7 +51,7 @@ class GingerClient():
 	
 
 	def _buildResponse(self, api_response):
-		"""Fonction pour construire une r^éponse à une requête API"""
+		"""Fonction pour construire une réponse à une requête API"""
 
 		response = {
 			'data' : api_response.json(),
