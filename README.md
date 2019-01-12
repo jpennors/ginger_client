@@ -1,4 +1,4 @@
-# ginger_client
+# Ginger Client
 Module Python pour interagir avec l'API Ginger : outil de gestion des cotisants UTC
 
 
