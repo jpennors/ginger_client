@@ -19,7 +19,7 @@ class GingerClient():
 	def getInfoByBadge(self, badge):
 		"""Fonction pour récupérer les informations d'un cotisant à partir de son numéro de badge"""
 
-		return self._apiCall("badge/" + badge);
+		return self._apiCall(method='get', path="badge/" + badge);
 
 
 
@@ -27,24 +27,24 @@ class GingerClient():
 	def getInfoByLogin(self, login):
 		"""Fonction pour récupérer les informations d'un cotisant à partir de son login"""
 
-		return self._apiCall(login)
+		return self._apiCall(method='get', path=login)
 
 
 
 	def findUsers(self, characters):
 		"""Fonction pour récupérer noms/prénoms/login/mail de tous les utilisateurs correpondants aux caractères entrés"""
 
-		return self._apiCall("find/" + characters)
+		return self._apiCall(method='get', path="find/" + characters)
 
 
 
-	def _apiCall(self, path, parameters = None):
+	def _apiCall(self, method, path, data = None, parameters = None):
 		"""Fonction effecutant les appels API sur Ginger/v1"""
 
 		uri = self.url + path
 		key = self.key
 
-		response = requests.get(uri + "?key=" + key, params = parameters)
+		response = requests.request(method=method, url=uri + "?key=" + key, data=data, params = parameters)
 
 		return self._buildResponse(response)
 
